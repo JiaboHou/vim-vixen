@@ -34,7 +34,7 @@ export default class TopContent {
 
   disableIfBlack(blacklist) {
     let loc = this.win.location;
-    let partial = loc.host + loc.pathname;
+    let partial = (loc.host + loc.pathname).replace(/^www\./, '');
     let matched = blacklist
       .map((item) => {
         let pattern = item.includes('/') ? item : item + '/*';
